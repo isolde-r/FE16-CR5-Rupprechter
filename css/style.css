@@ -3,7 +3,6 @@ font-family: 'Handlee', cursive; */
 
 main {
     font-family: 'Handlee', cursive;
- 
 }
 
 main h2 {
@@ -18,48 +17,53 @@ main h2 {
     height: 30vh
 }
 
+/* ******************* logo ******************* */
 
-/* #logo {
+#logo {
     position: relative;
-    border: red 2px solid;
-    
-    
+    width: 220px;
+    height: 80px;
 }
 
 #logo h1 {
     position: absolute;
-    left: 36px;
-    top: 0
+    left: 63px;
+    top: 21px;
+    font-size: 35px
 }
 
 #logo p {
     font-size: 13px;
     position: absolute;
-    top: 0;
-    left: 10px
+    top: 9px;
+    left: 38px;
 }
 
 #logo-man {
-    width: 30px;
+    width: 45px;
     transform: rotate(40deg);
     position: absolute;
-    top: 11px
+    top: 21px;
+    left: 7px;
+    filter: invert();
 }
 
+
 #logo-frog {
-    width: 20px;
+    width: 24px;
     transform: rotate(50deg);
     position: absolute;
-    bottom: -8px;
-    left: 23px;
-} */
+    bottom: -1px;
+    left: 44px;
+    filter: invert();
+}
 
-
+.hero {
+    height: 30vh;
+}
 
 @media screen and (min-width: 992px) {
     .hero {
         height: 40vh
     }
 }
-
-

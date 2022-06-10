@@ -25,14 +25,14 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <div id="logo">
-                        <!-- <img id="logo-man" src="img/foot-print.svg" alt="">
-                        <img id="logo-frog" src="img/frog-tracks.svg" alt=""> -->
-                        <!-- <p>Lifetime</p> -->
-                        <h1>Bu<span class="text-danger">d</span><span class="text-info">d</span>ies</h1>
-                    </div>
-                </a>
+                <div class="text-light" id="logo">
+                    <img id="logo-man" src="img/foot-print.svg" alt="">
+                    <img id="logo-frog" src="img/frog-tracks.svg" alt="">
+                    <p>Lifetime</p>
+                    <h1>Bu<span class="text-danger">d</span><span class="text-info">d</span>ies</h1>
+                </div>
+
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +50,8 @@
                             <a class="nav-link text-info" href="#">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-info" href="#">Age<i class="bi bi-sort-down-alt ms-1"></i></a>
+                            <a class="nav-link text-info sort-btn asc" href="#">Age<i class="bi bi-sort-down-alt ms-1"
+                                    id="sort-icon"></i></a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
@@ -62,18 +63,19 @@
         </nav>
     </header>
     <div class="hero"></div>
+    </div>
     <main class="container-fluid">
         <h2 class="text-center mt-3">Get to know our friends</h2>
-        <div class="animals-place d-flex flex-wrap flex-row gap-md-5 gap-lg-4 gap-xl-5 justify-content-center"></div>
+        <div class="animals-place d-flex flex-wrap flex-row gap-2 gap-md-5 gap-lg-4 gap-xl-5 justify-content-center">
+        </div>
 
-        
 
 
     </main>
     <footer class="text-center">
-        <p class="social-icons pb-4 bg-info bg-opacity-50 mb-0 mt-4 pt-2"><i class="bi bi-facebook mx-3"></i><i class="bi bi-twitter mx-3"></i><i
-                class="bi bi-google mx-3"></i><i class="bi bi-instagram mx-3"></i><i class="bi bi-linkedin mx-3"></i><i
-                class="bi bi-github mx-3"></i></p>
+        <p class="social-icons pb-4 bg-info bg-opacity-50 mb-0 mt-4 pt-2"><i class="bi bi-facebook mx-3"></i><i
+                class="bi bi-twitter mx-3"></i><i class="bi bi-google mx-3"></i><i class="bi bi-instagram mx-3"></i><i
+                class="bi bi-linkedin mx-3"></i><i class="bi bi-github mx-3"></i></p>
         <p class="py-2 bg-info m-0">&copy; 2022 Copyright: <a href="#" class="text-dark">lifetimeBuddies.com</a></p>
     </footer>
 
