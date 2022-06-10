@@ -66,7 +66,6 @@ class Animal implements intAnimal {
             this.vaccine = true;
         }
     }
-
 };
 
 // ------------ extends classes cat and dog from Animal class ------------
@@ -105,7 +104,6 @@ class Cat extends Animal {
             </div>
         </div>
     </div>`
-
     }
 }
 
@@ -141,7 +139,6 @@ class Dog extends Animal {
             </div>
         </div>
     </div>`
-
     }
     trainStatus() {
         if (this.training) {
@@ -178,7 +175,6 @@ function printToHtml(currentArray: Array<Animal>) {
         console.log(currentArray.indexOf)
     }
     let allVacBtns = document.querySelectorAll(".vac-btn") as NodeListOf<HTMLElement>;
-
 
     allVacBtns.forEach((btn, i) => {
         function setBtnColor() {
