@@ -40,6 +40,14 @@ class Animal {
             return `Not vaccinated <i class="bi bi-calendar-x h-75"></i>`;
         }
     }
+    changeVacStatus() {
+        if (this.vaccine) {
+            this.vaccine = false;
+        }
+        else {
+            this.vaccine = true;
+        }
+    }
 }
 ;
 // ------------ extends classes cat and dog from Animal class ------------
@@ -65,7 +73,7 @@ class Cat extends Animal {
             <div class="ms-3">
                 <p class="card-text d-none d-md-block">Breed: ${this.breed}</p>
                 <p class="card-text d-none d-md-block">Fur color: ${this.fur_color}</p>
-                <p class="card-text d-none d-md-block">Breed Info: <a href="${this.URL_breed}">www.<span class="text-lowercase">${this.breed}</span>.com</a></p>
+                <p class="card-text d-none d-md-block">Breed Info: <a href="${this.URL_breed}" target="_blank">www.<span class="text-lowercase">${this.breed}</span>.com</a></p>
             </div>
             <div class="d-flex align-items-center d-block d-md-none justify-content-center">
                 <div class="w-25">
@@ -129,9 +137,63 @@ new Dog("Lucky", 1, "male", "pocket-size", true, "img/dog_listener.jpg", "I'm a 
 new Dog("Bentley", 2, "male", "medium", false, "img/dog_model.jpg", "I dont do fashion, I AM fashion", "dog", "Terrier Poodle", false);
 new Dog("Magic", 4, "male", "clumsy", true, "img/dog_tramp.jpg", "\"tramps like us, baby, we were born to run\"", "dog", "Golden Retriever", true);
 // ------------ prints all animals to HTML ------------
-for (const animal of animalArray) {
-    let overviewContent = document.querySelector(".animals-place");
-    overviewContent.innerHTML += animal.display();
+let overviewContent = document.querySelector(".animals-place");
+function printToHtml(currentArray) {
+    for (const animal of currentArray) {
+        overviewContent.innerHTML += animal.display();
+        console.log(currentArray.indexOf);
+    }
+    let allVacBtns = document.querySelectorAll(".vac-btn");
+    allVacBtns.forEach((btn, i) => {
+        function setBtnColor() {
+            if (animalArray[i].vaccine) {
+                btn.style.backgroundColor = "green";
+                btn.style.borderColor = "green";
+                btn.style.boxShadow = "none";
+            }
+            else {
+                btn.style.backgroundColor = "red";
+                btn.style.borderColor = "red";
+                btn.style.boxShadow = "none";
+            }
+        }
+        ;
+        setBtnColor();
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            (function toggleVaccStatus() {
+                if (animalArray[i].vaccine) {
+                    btn.innerHTML = `Not vaccinated <i class="bi bi-calendar-x h-75"></i>`;
+                    animalArray[i].changeVacStatus();
+                }
+                else {
+                    btn.innerHTML = `Vaccinated <i class="bi bi-trophy-fill h-75"></i>`;
+                    animalArray[i].changeVacStatus();
+                }
+                ;
+                setBtnColor();
+            })();
+        });
+    });
 }
 ;
-// ------------ adds functionality to vaccination buttons ------------
+printToHtml(animalArray);
+// ------------ creates ascending sort button and toggles to descending ------------
+let sortBtn = document.querySelector(".sort-btn");
+let sortIcon = document.getElementById("sort-icon");
+sortBtn.addEventListener("click", () => {
+    if (sortBtn.classList.contains("asc")) {
+        sortBtn.classList.replace("asc", "desc");
+        sortIcon.setAttribute("class", "bi bi-sort-down ms-1");
+        let sortedAnimals = animalArray.sort((a, b) => a.age - b.age);
+        overviewContent.innerHTML = "";
+        printToHtml(sortedAnimals);
+    }
+    else {
+        sortBtn.classList.replace("desc", "asc");
+        sortIcon.setAttribute("class", "bi bi-sort-down-alt ms-1");
+        let sortedAnimals = animalArray.sort((a, b) => b.age - a.age);
+        overviewContent.innerHTML = "";
+        printToHtml(sortedAnimals);
+    }
+});
