@@ -1,0 +1,65 @@
+/* font-family: 'Kalam', cursive; 
+font-family: 'Handlee', cursive; */
+
+main {
+    font-family: 'Handlee', cursive;
+ 
+}
+
+main h2 {
+    font-family: 'Kalam', cursive
+}
+
+.hero {
+    background-image: url("../img/hero.jpg");
+    background-position: 25% 27%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30vh
+}
+
+
+/* #logo {
+    position: relative;
+    border: red 2px solid;
+    
+    
+}
+
+#logo h1 {
+    position: absolute;
+    left: 36px;
+    top: 0
+}
+
+#logo p {
+    font-size: 13px;
+    position: absolute;
+    top: 0;
+    left: 10px
+}
+
+#logo-man {
+    width: 30px;
+    transform: rotate(40deg);
+    position: absolute;
+    top: 11px
+}
+
+#logo-frog {
+    width: 20px;
+    transform: rotate(50deg);
+    position: absolute;
+    bottom: -8px;
+    left: 23px;
+} */
+
+
+
+@media screen and (min-width: 992px) {
+    .hero {
+        height: 40vh
+    }
+}
+
+
