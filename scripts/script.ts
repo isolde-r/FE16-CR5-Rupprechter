@@ -31,23 +31,26 @@ class Animal implements intAnimal {
         this.animalType = animalType;
         animalArray.push(this);
     }
+    genericInfo() {
+        return `<img src="${this.image}" class="card-img-top d-none d-md-inline" alt="picture of ${this.name}">
+        <div class="card-body fw-bold p-0">
+            <h5 class="card-title fw-bold text-center bg-dark text-light py-1">${this.name}</h5>
+            <div class="ms-3">
+                <p class="card-text d-none d-lg-block">Gender: ${this.gender}</p>
+                <p class="card-text d-none d-lg-block">Age: ${this.age}</p>
+                <p class="card-text d-none d-lg-block">Size: ${this.size}</p>
+            </div>
+            <a href="#" class="btn btn-success rounded-pill w-100 fw-bold pb-0 mb-2 d-none d-lg-block my-2 vac-btn">${this.vaccStatus()}
+            </a>`
+    }
     display() {
         return `<div class="card shadow col-12 col-sm-12 col-md-5 col-lg-3">
-            <img src="${this.image}" class="card-img-top d-none d-md-inline" alt="picture of ${this.name}">
-            <div class="card-body fw-bold p-0">
-                <h5 class="card-title fw-bold text-center bg-dark text-light py-1">${this.name}</h5>
-                <div class="ms-3">
-                    <p class="card-text d-none d-md-block">Gender: ${this.gender}</p>
-                    <p class="card-text d-none d-md-block">Age: ${this.age}</p>
-                    <p class="card-text d-none d-md-block">Size: ${this.size}</p>
-                </div>
-                <a href="#" class="btn btn-success rounded-pill w-100 fw-bold pb-0 mb-2 d-none d-md-block my-2 vac-btn">${this.vaccStatus()}
-                </a>
-                <div class="d-flex align-items-center d-block d-md-none justify-content-center">
-                <div class="w-25">
+                ${this.genericInfo()}
+                <div class="d-flex align-items-center justify-content-center">
+                <div class="w-25 d-block d-md-none">
                 ${this.animalType === "frog" ? `<img src="img/svg/frog.svg" alt="icon of a frog" class="w-100">` : `<img src="img/svg/bird.svg" alt="icon of a parrot" class="w-100">`}
                 </div>
-                <p class="text-nowrap text-center">${this.teaserText}</p>
+                <p class="text-nowrap d-md-block d-lg-none text-center">${this.teaserText}</p>
             </div>
             </div>
         </div>`
@@ -66,7 +69,7 @@ class Animal implements intAnimal {
             this.vaccine = true;
         }
     }
-};
+}
 
 // ------------ extends classes cat and dog from Animal class ------------
 class Cat extends Animal {
@@ -79,33 +82,26 @@ class Cat extends Animal {
         this.fur_color = fur_color;
         this.URL_breed = URL_breed;
     }
+
     display() {
         return `<div class="card shadow col-12 col-sm-12 col-md-5 col-lg-3">
-        <img src="${this.image}" class="card-img-top d-none d-md-inline" alt="picture of ${this.name}">
-        <div class="card-body fw-bold p-0">
-            <h5 class="card-title fw-bold text-center bg-dark text-light py-1">${this.name}</h5>
+            ${this.genericInfo()}
             <div class="ms-3">
-                <p class="card-text d-none d-md-block">Gender: ${this.gender}</p>
-                <p class="card-text d-none d-md-block">Age: ${this.age}</p>
-                <p class="card-text d-none d-md-block">Size: ${this.size}</p>
+                <p class="card-text d-none d-lg-block">Breed: ${this.breed}</p>
+                <p class="card-text d-none d-lg-block">Fur color: ${this.fur_color}</p>
+                <p class="card-text d-none d-lg-block">Breed Info: <a href="${this.URL_breed}" target="_blank">www.<span class="text-lowercase">${this.breed}</span>.com</a></p>
             </div>
-            <a href="#" class="btn btn-success rounded-pill w-100 fw-bold pb-0 mb-2 d-none d-md-block my-2 vac-btn">${this.vaccStatus()}
-            </a>
-            <div class="ms-3">
-                <p class="card-text d-none d-md-block">Breed: ${this.breed}</p>
-                <p class="card-text d-none d-md-block">Fur color: ${this.fur_color}</p>
-                <p class="card-text d-none d-md-block">Breed Info: <a href="${this.URL_breed}" target="_blank">www.<span class="text-lowercase">${this.breed}</span>.com</a></p>
-            </div>
-            <div class="d-flex align-items-center d-block d-md-none justify-content-center">
-                <div class="w-25">
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="w-25 d-block d-md-none">
                     <img src="img/svg/cat.svg" alt="icon of a cat" class="w-100">
                 </div>
-                <p class="text-nowrap text-center">${this.teaserText}</p>
+                <p class="text-nowrap text-center d-md-block d-lg-none">${this.teaserText}</p>
             </div>
         </div>
     </div>`
     }
 }
+
 
 class Dog extends Animal {
     breed: string;
@@ -117,25 +113,16 @@ class Dog extends Animal {
     }
     display() {
         return `<div class="card shadow col-12 col-sm-12 col-md-5 col-lg-3">
-        <img src="${this.image}" class="card-img-top d-none d-md-inline" alt="picture of ${this.name}">
-        <div class="card-body fw-bold p-0">
-            <h5 class="card-title fw-bold text-center bg-dark text-light py-1">${this.name}</h5>
+            ${this.genericInfo()}
             <div class="ms-3">
-                <p class="card-text d-none d-md-block">Gender: ${this.gender}</p>
-                <p class="card-text d-none d-md-block">Age: ${this.age}</p>
-                <p class="card-text d-none d-md-block">Size: ${this.size}</p>
+                <p class="card-text d-none d-lg-block">Breed: ${this.breed}</p>
+                <p class="card-text d-none d-lg-block">Training: ${this.trainStatus()}</p>
             </div>
-            <a href="#" class="btn btn-success rounded-pill w-100 fw-bold pb-0 mb-2 d-none d-md-block my-2 vac-btn">${this.vaccStatus()}
-            </a>
-            <div class="ms-3">
-                <p class="card-text d-none d-md-block">Breed: ${this.breed}</p>
-                <p class="card-text d-none d-md-block">Training: ${this.trainStatus()}</p>
-            </div>
-            <div class="d-flex align-items-center d-block d-md-none justify-content-center">
-                <div class="w-25">
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="w-25 d-block d-md-none">
                     <img src="img/svg/dog.svg" alt="icon of a dog" class="w-100">
                 </div>
-                <p class="text-nowrap text-center">${this.teaserText}</p>
+                <p class="text-nowrap text-center d-md-block d-lg-none">${this.teaserText}</p>
             </div>
         </div>
     </div>`
@@ -172,11 +159,11 @@ let overviewContent = document.querySelector(".animals-place") as HTMLElement;
 function printToHtml(currentArray: Array<Animal>) {
     for (const animal of currentArray) {
         overviewContent.innerHTML += animal.display();
-        console.log(currentArray.indexOf)
     }
+
     let allVacBtns = document.querySelectorAll(".vac-btn") as NodeListOf<HTMLElement>;
 
-    allVacBtns.forEach((btn, i) => {
+    allVacBtns.forEach((btn: HTMLElement, i: number) => {
         function setBtnColor() {
             if (animalArray[i].vaccine) {
                 btn.style.backgroundColor = "green";
@@ -187,25 +174,18 @@ function printToHtml(currentArray: Array<Animal>) {
                 btn.style.borderColor = "red";
                 btn.style.boxShadow = "none";
             }
-        };
+        }
         setBtnColor();
 
-        btn.addEventListener("click", (e) => {
+        btn.addEventListener("click", (e: MouseEvent) => {
             e.preventDefault();
-            (function toggleVaccStatus() {
-                if (animalArray[i].vaccine) {
-                    btn.innerHTML = `Not vaccinated <i class="bi bi-calendar-x h-75"></i>`;
-                    animalArray[i].changeVacStatus();
-                } else {
-                    btn.innerHTML = `Vaccinated <i class="bi bi-trophy-fill h-75"></i>`;
-                    animalArray[i].changeVacStatus();
-                };
-                setBtnColor();
-            })();
+            animalArray[i].changeVacStatus();
+            btn.innerHTML = animalArray[i].vaccStatus();
+            setBtnColor();
         })
     });
 
-};
+}
 printToHtml(animalArray);
 
 
@@ -217,13 +197,13 @@ let sortIcon = document.getElementById("sort-icon") as HTMLElement;
 sortBtn.addEventListener("click", () => {
     if (sortBtn.classList.contains("asc")) {
         sortBtn.classList.replace("asc", "desc");
-        sortIcon.setAttribute("class", "bi bi-sort-down ms-1");
+        sortIcon.classList.replace("bi-sort-down-alt", "bi-sort-down");
         let sortedAnimals = animalArray.sort((a: Animal, b: Animal) => a.age - b.age);
         overviewContent.innerHTML = "";
         printToHtml(sortedAnimals);
     } else {
         sortBtn.classList.replace("desc", "asc");
-        sortIcon.setAttribute("class", "bi bi-sort-down-alt ms-1")
+        sortIcon.classList.replace("bi-sort-down", "bi-sort-down-alt");
         let sortedAnimals = animalArray.sort((a: Animal, b: Animal) => b.age - a.age);
         overviewContent.innerHTML = "";
         printToHtml(sortedAnimals);

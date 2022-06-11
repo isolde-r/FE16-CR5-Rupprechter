@@ -6,7 +6,7 @@ main {
 }
 
 main h2 {
-    font-family: 'Kalam', cursive
+    font-family: 'Kalam', cursive;
 }
 
 .hero {
@@ -14,7 +14,7 @@ main h2 {
     background-position: 25% 27%;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 30vh
+    height: 30vh;
 }
 
 /* ******************* logo ******************* */
@@ -29,7 +29,7 @@ main h2 {
     position: absolute;
     left: 63px;
     top: 21px;
-    font-size: 35px
+    font-size: 35px;
 }
 
 #logo p {
@@ -58,12 +58,10 @@ main h2 {
     filter: invert();
 }
 
-.hero {
-    height: 30vh;
-}
+/* ******************* media query ******************* */
 
 @media screen and (min-width: 992px) {
     .hero {
-        height: 40vh
+        height: 40vh;
     }
 }
